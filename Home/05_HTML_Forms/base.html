@@ -33,11 +33,11 @@
                 <form name="Form1" metod="post" action="/http://sc.it-academy.by/fe/form.php">
                     <fieldset>
                       <legend>Строка поиска</legend>
-                      <input type="search" name="search" size="10">
+                      <input type="search" name="search" size="10" maxlength="10">
                       <input type="submit" value="Искать" formtarget="_blank">
                       <br>
-                      <input type="radio" name="type_search" checked> на сайте
-                      <input type="radio" name="type_search"> в google
+                      <input type="radio" name="type_search" value="website" checked> на сайте
+                      <input type="radio" name="type_search" value="google"> в google
                       <br>
                       <i>Длина запроса не более 10 символов</i>
                     </fieldset>
@@ -54,8 +54,8 @@
                       <input type="search" name="search" size="10" required autofocus><sup>*</sup>
                       <input type="submit" value="Искать" formtarget="_blank">
                       <br>
-                      <input type="radio" name="type_search"> на сайте
-                      <input type="radio" name="type_search" checked> в google
+                      <input type="radio" name="type_search" value="website"> на сайте
+                      <input type="radio" name="type_search" value="google" checked> в google
                       <br>
                       <i>* - обязательное поле<br>
                         Автофокус в поле поиска</i>
@@ -91,13 +91,13 @@
                 <form name="Form4" metod="post" action="/http://sc.it-academy.by/fe/form.php">
                     <fieldset>
                       <legend>Как вам?</legend>
-                      <input type="radio" name="comment1" checked> ничего
+                      <input type="radio" name="comment" value="2" checked> ничего
                       <br>
-                      <input type="radio" name="comment2"> неплохо
+                      <input type="radio" name="comment" value="3"> неплохо
                       <br>
-                      <input type="radio" name="comment3"> хорошо
+                      <input type="radio" name="comment" value="4">  хорошо
                       <br>
-                      <input type="radio" name="comment4"> супер
+                      <input type="radio" name="comment" value="5"> супер
                       <input type="hidden" name="date_voite" value="2013.12.31">
                       <br> 
                       <input type="submit" value="Отправить" formtarget="_blank">
@@ -121,7 +121,7 @@
                       <br>
                       <input type="email" name="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" required> <sup>*</sup> e-mail
                       <br>
-                      <textarea name="comment" cols="15" maxlength="50">Форма отправки</textarea>
+                      <textarea name="comment" cols="15" maxlength="50" placeholder="Форма отправки"></textarea>
                       <br>
                       <input type="submit" value="Отправить" formtarget="_blank">
                       <br>
@@ -165,45 +165,46 @@
         <tr>
             <td>
                 <br>
-                <b>Отзыв:</b>
                 <br>
                 <br>
-                <form name="Form5" metod="post" action="/http://sc.it-academy.by/fe/form.php">
+                <b>Загрузка файла на сервер:</b>
+                <br>
+                <br>
+                <form name="Form5" metod="post" action="/http://sc.it-academy.by/fe/form.php" enctype="multipart/form-data">
                     <fieldset>
-                      <legend>Оставьте Ваш отзыв</legend>
-                      <input type="text" name="name" required> <sup>*</sup> Имя
+                      <legend>Upload</legend>
+                      Файл:
                       <br>
-                      <input type="email" name="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" required> <sup>*</sup> e-mail
+                      <input type="file" name="file">
                       <br>
-                      <textarea name="comment" cols="15" maxlength="50">Форма отправки</textarea>
+                      Срок хранения (года):
                       <br>
-                      <input type="submit" value="Отправить" formtarget="_blank">
+                      <input type="text" name="years" min="1" max="75" size="7" maxlength="2">
+                      <input type="submit" value="загрузить" formtarget="_blank">
                       <br>
-                      <i>* - обязательное поле<br>
-                        поле email - с проверкой<br>
-                        метод POST</i>
+                      <i>Метод POST<br>
+                        В теге form используйте атрибут<br>
+                        enctype="multipart/form-data" для отправки<br>
+                        файла на сервер</i>
                     </fieldset>
                 </form>
             </td>
             <td>
                 <br>
-                <b>Отзыв:</b>
+                <b>Валидация данных HTML5:</b>
                 <br>
                 <br>
                 <form name="Form5" metod="post" action="/http://sc.it-academy.by/fe/form.php">
                     <fieldset>
-                      <legend>Оставьте Ваш отзыв</legend>
-                      <input type="text" name="name" required> <sup>*</sup> Имя
-                      <br>
-                      <input type="email" name="email" pattern="(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*)@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])" required> <sup>*</sup> e-mail
-                      <br>
-                      <textarea name="comment" cols="15" maxlength="50">Форма отправки</textarea>
-                      <br>
-                      <input type="submit" value="Отправить" formtarget="_blank">
-                      <br>
-                      <i>* - обязательное поле<br>
-                        поле email - с проверкой<br>
-                        метод POST</i>
+                        <legend>Строка поиска</legend>
+                        <input type="text" name="name" placeholder="Только русские буквы" pattern="^[А-Яа-яЁё\s]+$">
+                        <br>
+                        <i>Телефонный номер в формате<br>
+                        +ХХХ-ХХ-ХХХХХХХ, где Х - любое число</i>
+                        <br>
+                        <input type="tel" name="tel" maxlength="15" placeholder="+375-29-1234567" pattern="\+{0,1}\d{3}[-]{0,1}\d{2}[-]{0,1}\d{7}">
+                        <br>
+                        <input type="submit" value="Проверить" formtarget="_blank">
                     </fieldset>
                 </form>
             </td>
