@@ -7,7 +7,68 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Заполните анкету</h1>
+    <h1 style="text-align: center;">Заполните анкету</h1>
+    <form name="Form" metod="post" action="/http://sc.it-academy.by/fe/form.php">
+        <fieldset>
+            <legend>Заполните анкету</legend>
+            <input type="text" name="forname" placeholder="Фамилия" pattern="^[А-Яа-яЁё\s]" size="25" required autofocus>
+            <span>text: Только кириллица, без пробелов, длина поля 25, обязательное поле, автофокус на данном поле)</span>
+            <br>
+            <input type="text" name="name" placeholder="Имя" pattern="^[А-Яа-яЁё\s]" size="20" required>
+            <span>text: Только кириллица, без пробелов, длина поля 25, обязательное поле)</span>
+            <br>
+            <input type="text" name="patronymic" placeholder="Отчество" pattern="^[А-Яа-яЁё\s]" size="24" required>
+            <br>
+                <fieldset>
+                    <legend>Паспортные данные</legend>
+                    <span>text: Серия - только заглавные две латинские буквы с длиной 2 и максимальным количеством символов 2, 
+                        количество букв не менее 2, обязательное поле</span>
+                    <br>
+                    <span>text: Номер паспорта - только цифры с длиной 7 и максимальным количеством символов 7, количество цифр не менее 7,
+                        обязательное поле</span>
+                    <br>
+                    <input type="text" name="series" maxlength="2" placeholder="AA" size="5" required pattern="[A-Z]{2}">
+                    <input type="text" name="number" maxlength="7" placeholder="1234567" size="10" required pattern="[0-9]{7}">
+                </fieldset>
+                <fieldset>
+                    <legend>Дата рождения</legend>
+                    <input type="text" name="year" size="7" maxlength="4" pattern="[0-9]{4}"> text: Год рождения 4-е цифры
+                    <br>
+                    <select name="month" size="1">
+                        <option value="1">Январь</option>
+                        <option value="2">Февраль</option>
+                        <option value="3">Март</option>
+                        <option value="4">Апрель</option>
+                        <option value="5">Май</option>
+                        <option value="6">Июнь</option>
+                        <option value="7">Июль</option>
+                        <option value="8">Август</option>
+                        <option value="9">Сентябрь</option>
+                        <option value="10">Октябрь</option>
+                        <option value="11">Ноябрь</option>
+                        <option value="12">Декабрь</option>
+                    </select>
+                    <span>Месяц рождения</span>
+                    <br>
+                    <input type="number" size="10" name="day" min="1" max="31" step="1" required>
+                    <span>number: Диапазон от 1 до 31 с шагом 1</span>
+                </fieldset>
+                    <select name="nationality" size="1">
+                        <option value="rb">РБ</option>
+                        <option value="rf">РФ</option>
+                        <option value="rp">РП</option>
+                        <option value="rlt">РЛит</option>
+                        <option value="rlv">РЛат</option>
+                        <option value="ukr">РУкр</option>
+                    </select>
+                    <span>(Национальность - выбор одного значения из списка, обязательное поле)</span>
+                    <br>
+                    <span>Адрес:</span>
+                    <br>
+
+                
+        </fieldset>
+    </form>
     
     
 </body>
