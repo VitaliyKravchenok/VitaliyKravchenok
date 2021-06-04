@@ -8,7 +8,7 @@
 </head>
 <body>
     <h1 style="text-align: center;">Заполните анкету</h1>
-    <form name="Form" metod="post" action="http://fe.it-academy.by/TestForm.php">
+    <form name="Form" method="post" action="http://fe.it-academy.by/TestForm.php">
         <fieldset>
             <legend>Заполните анкету</legend>
             <input type="text" name="forname" placeholder="Фамилия" pattern="[А-Яа-яЁё]{1,}" size="25" required autofocus>
@@ -109,7 +109,7 @@
         <fieldset>
             <legend>Координаты</legend>
             <input type="email" name="email" size="20" placeholder="введите адрес почты"
-            pattern="([a-z0-9_\.-]+)@([a-z0-9_\.-]+).([a-z\.]{2,6})$" required>
+            pattern="([a-z0-9_\.-]+)@([a-z0-9_\.-]+)\.([a-z\.]{2,6})$" required>
             <span>email: проверка должна осуществляться при помощи новых атрибутов тега &lt;input&gt;)</span><br> 
             <input type="url" name="url" size="20" placeholder="введите адрес сайта"
             pattern="(https?:\/\/)([a-z0-9_\.-]+).([a-z\.]{2,6})$" required>
